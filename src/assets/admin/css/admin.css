@@ -1538,7 +1538,7 @@ header {
   background-repeat: no-repeat;
   background-position: center;
   height: 75vh; }
-  /* .home-slider .home.home-png1, .center-slider .home.home-png1 {
+  .home-slider .home.home-png1, .center-slider .home.home-png1 {
     background-image: url("/assets/admin/images/home-banner/1.png"); }
   .home-slider .home.home-png2, .center-slider .home.home-png2 {
     background-image: url("/assets/admin/images/home-banner/2.png"); }
@@ -1677,7 +1677,7 @@ header {
   .home-slider .home.home-png69, .center-slider .home.home-png69 {
     background-image: url("/assets/admin/images/home-banner/69.png"); }
   .home-slider .home.home-png70, .center-slider .home.home-png70 {
-    background-image: url("/assets/admin/images/home-banner/70.png"); } */
+    background-image: url("/assets/admin/images/home-banner/70.png"); } 
 
 .home-slider .slider-details, .center-slider .slider-details {
   position: absolute;
