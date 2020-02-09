@@ -3,6 +3,7 @@ import { DashboardComponent } from './views/dashboard/dashboard.component';
 import { CategoryComponent } from './views/category/category.component';
 import { Routes, RouterModule } from '@angular/router';
 import { LoginComponent } from './views/login/login.component';
+import { IsAuthGuard } from '../shared/guards/is-auth.guard';
 
 const routes: Routes = [
     {
@@ -16,7 +17,7 @@ const routes: Routes = [
     {
         path: "",
         component: AdminComponent,
-        canActivateChild: [],
+        canActivateChild: [IsAuthGuard],
         children: [
             {
                 path: 'dashboard',
@@ -26,7 +27,7 @@ const routes: Routes = [
                 }
             },
             {
-                path: 'categories',
+                path: 'category',
                 component: CategoryComponent,
                 data: {
                     title: 'Categories'

@@ -121,17 +121,18 @@
                             </ul>
                             <div class="tab-content" id="top-tabContent">
                                 <div class="tab-pane fade show active" id="top-profile" role="tabpanel" aria-labelledby="top-profile-tab">
-                                    <form class="form-horizontal auth-form">
+                                    <form class="form-horizontal auth-form"  #nForm1="ngForm" [formGroup]="rForm" (ngSubmit)="rForm.valid && login()"
+                                    [ngClass]="{'submitted-form':nForm1.submitted }">
                                         <div class="form-group">
-                                            <input required="" name="login[username]" type="email" class="form-control" placeholder="Username" id="exampleInputEmail1">
+                                            <input type="email" class="form-control" placeholder="Username" formControlName="username">
                                         </div>
                                         <div class="form-group">
-                                            <input required="" name="login[password]" type="password" class="form-control" placeholder="Password">
+                                            <input type="password" class="form-control" placeholder="Password" formControlName="password">
                                         </div>
                                         <div class="form-terms">
                                             <div class="custom-control custom-checkbox mr-sm-2">
-                                                <input type="checkbox" class="custom-control-input" id="customControlAutosizing">
-                                                <label class="custom-control-label" for="customControlAutosizing">Remember me</label>
+                                                <input type="checkbox" class="custom-control-input"  id="isRemember_ck" formControlName="isRemember">
+                                                <label class="custom-control-label" for="isRemember_ck">Remember me</label>
                                                 <a href="#" class="btn btn-default forgot-pass">lost your password</a>
                                             </div>
                                         </div>
@@ -141,24 +142,26 @@
                                     </form>
                                 </div>
                                 <div class="tab-pane fade" id="top-contact" role="tabpanel" aria-labelledby="contact-top-tab">
-                                    <form class="form-horizontal auth-form">
+                                    <form class="form-horizontal auth-form"  #nForm2="ngForm" [formGroup]="rForm" (ngSubmit)="rForm.valid && register()"
+                                    [ngClass]="{'submitted-form':nForm2.submitted }">
                                         <div class="form-group">
-                                            <input required="" name="login[username]" type="email" class="form-control" placeholder="Username" id="exampleInputEmail12">
+                                            <input type="email" class="form-control" placeholder="Username" formControlName="username">
                                         </div>
                                         <div class="form-group">
-                                            <input required="" name="login[password]" type="password" class="form-control" placeholder="Password">
+                                            <input  type="password" class="form-control" placeholder="Password" formControlName="password">
                                         </div>
                                         <div class="form-group">
-                                            <input required="" name="login[password]" type="password" class="form-control" placeholder="Confirm Password">
+                                            <input type="password" class="form-control" placeholder="Confirm Password" formControlName="rePassword">
                                         </div>
                                         <div class="form-terms">
                                             <div class="custom-control custom-checkbox mr-sm-2">
-                                                <input type="checkbox" class="custom-control-input" id="customControlAutosizing1">
-                                                <label class="custom-control-label" for="customControlAutosizing1"><span>I agree all statements in <a href=""  class="pull-right">Terms &amp; Conditions</a></span></label>
+                                                <input type="checkbox" class="custom-control-input" id="isApproveAgrement_ck" 
+                                                [(ngModel)]="isApproveAgrement" [ngModelOptions]="{standalone: true}">
+                                                <label class="custom-control-label" for="isApproveAgrement_ck"><span>I agree all statements in <a href=""  class="pull-right">Terms &amp; Conditions</a></span></label>
                                             </div>
                                         </div>
                                         <div class="form-button">
-                                            <button class="btn btn-primary" type="submit">Register</button>
+                                            <button class="btn btn-primary" type="submit" [disabled]="!isApproveAgrement">Register</button>
                                         </div>
                                     </form>
                                 </div>

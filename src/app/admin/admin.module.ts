@@ -8,13 +8,14 @@ import { SideBarComponent } from './layout/side-bar/side-bar.component';
 import { FooterComponent } from './layout/footer/footer.component';
 import { AdminRoutingModule } from './admin-routing.module';
 import { LoginComponent } from './views/login/login.component';
+import { FormsModule , ReactiveFormsModule } from '@angular/forms';
 
 
 
 @NgModule({
   declarations: [AdminComponent, CategoryComponent, DashboardComponent, NavBarComponent, SideBarComponent, FooterComponent, LoginComponent],
   imports: [
-    CommonModule , AdminRoutingModule
+    CommonModule , AdminRoutingModule , FormsModule , ReactiveFormsModule
   ]
 })
 export class AdminModule { }
