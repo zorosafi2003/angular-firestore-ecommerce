@@ -9,11 +9,12 @@ import { FooterComponent } from './layout/footer/footer.component';
 import { AdminRoutingModule } from './admin-routing.module';
 import { LoginComponent } from './views/login/login.component';
 import { FormsModule , ReactiveFormsModule } from '@angular/forms';
+import { AddCategoryPopupComponent } from './components/category/add-category-popup/add-category-popup.component';
 
 
 
 @NgModule({
-  declarations: [AdminComponent, CategoryComponent, DashboardComponent, NavBarComponent, SideBarComponent, FooterComponent, LoginComponent],
+  declarations: [AdminComponent, CategoryComponent, DashboardComponent, NavBarComponent, SideBarComponent, FooterComponent, LoginComponent, AddCategoryPopupComponent],
   imports: [
     CommonModule , AdminRoutingModule , FormsModule , ReactiveFormsModule
   ]

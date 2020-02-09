@@ -1,0 +1,28 @@
+<ngx-smart-modal customClass="modal-content no-padding modal-md nsm-dialog-animation-ttb" #addCategoryModal identifier="addCategoryModal">
+    <div class="modal-header">
+        <h4 class="modal-title">{{title}} </h4>
+    </div>
+    <form #nForm="ngForm" [formGroup]="rForm" (ngSubmit)="rForm.valid && save()" novalidate
+        [ngClass]="{ 'submitted-form': nForm.submitted }">
+        <div class="modal-body">
+            <div class="row">
+                <div class="form-group col-12">
+                    <label class="col-form-label ">Category Name:</label>
+                    <input type="text" class="form-control form-control-sm" formControlName="name">
+                </div> 
+                <div class="form-group col-12">
+                    <label class="col-form-label">Parent Category:</label>
+                    <ng-select [items]="data.categoryArr" bindLabel="name" bindValue="id"
+                     formControlName="parentId" class="control-sm">
+                    </ng-select>
+                </div>
+            </div>
+        </div>
+        <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" (click)="addCategoryModal.close()">
+                Close
+            </button>
+            <button type="submit" class="btn btn-primary">Save changes</button>
+        </div>
+    </form>
+</ngx-smart-modal>
