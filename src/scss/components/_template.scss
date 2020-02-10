@@ -12,3 +12,21 @@
       cursor: not-allowed;
      }
     }
+
+    table tr:not(.fold) {
+      &:hover td > .operations {
+        display: block;
+      }
+    
+      .operations {
+        display: none;
+        text-align: center;
+        a {
+    
+          i {
+            margin-right: 10px;
+            font-size: 20px;
+          }
+        }
+      }
+    }

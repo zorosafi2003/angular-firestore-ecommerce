@@ -2,5 +2,11 @@
 @import "bootstrap/dist/css/bootstrap.min.css";
 @import "font-awesome/css/font-awesome.min.css";
 
+// components
 @import './components/admin-template';
 @import './components/template';
+
+// plugins
+@import './plugins/ngx-smart-modal';
+@import './plugins/ng-select';
+

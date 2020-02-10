@@ -10,6 +10,9 @@ import { AdminRoutingModule } from './admin-routing.module';
 import { LoginComponent } from './views/login/login.component';
 import { FormsModule , ReactiveFormsModule } from '@angular/forms';
 import { AddCategoryPopupComponent } from './components/category/add-category-popup/add-category-popup.component';
+import { NgSelectModule } from '@ng-select/ng-select';
+import { NgxSmartModalModule } from 'ngx-smart-modal';
+import { SweetAlert2Module } from '@sweetalert2/ngx-sweetalert2';
 
 
 
@@ -17,6 +20,7 @@ import { AddCategoryPopupComponent } from './components/category/add-category-po
   declarations: [AdminComponent, CategoryComponent, DashboardComponent, NavBarComponent, SideBarComponent, FooterComponent, LoginComponent, AddCategoryPopupComponent],
   imports: [
     CommonModule , AdminRoutingModule , FormsModule , ReactiveFormsModule
+     ,NgSelectModule , NgxSmartModalModule.forChild() , SweetAlert2Module.forChild()
   ]
 })
 export class AdminModule { }

@@ -2,34 +2,49 @@
     <div class="col-sm-12">
         <div class="card">
             <div class="card-header text-right">
-                <button type="button" class="btn btn-secondary" data-toggle="modal" data-original-title="test" data-target="#exampleModal">Add Category</button>
+                <button type="button" class="btn btn-secondary" (click)="create()">
+                    Add Category
+                </button>
             </div>
             <div class="card-body">
-            <table class="table table-striped ">
-                <thead >
-                    <tr>
-                        <th>Name</th>
-                        <th>Status</th>
-                        <th>Parent Category</th>
-                        <th></th>
-                    </tr>
+                <table class="table table-striped ">
+                    <thead>
+                        <tr>
+                            <th>Name</th>
+                            <th>Status</th>
+                            <th>Parent Category</th>
+                            <th></th>
+                        </tr>
                     </thead>
                     <tbody>
-                        <tr>
-                            <td scope="row"></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                        </tr>
-                        <tr>
-                            <td scope="row"></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                        </tr>
+                        <ng-container *ngFor="let item of data.categoryArr">
+                            <tr>
+                                <td><a href="javascript:void(0)" (click)="update(item.Id)"> {{ item.Name }}</a></td>
+                                <td>
+                                    <a href="javascript:void(0)" (click)="toggleActive(item)">
+                                    <i  class="fa fa-circle text-success" *ngIf="item.IsActive"></i>
+                                    <i class="fa fa-circle text-danger" *ngIf="!item.IsActive"></i>
+                                </a>
+                                </td>
+                                <td>{{ item.ParentName }}</td>
+                                <td>
+                                    <div class="operations">
+                                        <a href="javascript:void(0)" (click)="delete(item)">
+                                          <i class="fa fa-trash"></i>
+                                        </a>
+                                      </div>
+                                </td>
+                            </tr>
+                        </ng-container>
                     </tbody>
-            </table>
+                </table>
             </div>
         </div>
     </div>
 </div>
+
+<app-add-category-popup #addCategoryPopup></app-add-category-popup>
+
+<swal #confirmSwal title="" text="" type="question" [showCancelButton]="true"
+[focusCancel]="true" >
+</swal>
