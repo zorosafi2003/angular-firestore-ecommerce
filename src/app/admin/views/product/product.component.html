@@ -1,0 +1,52 @@
+<div class="row">
+    <div class="col-sm-12">
+        <div class="card">
+            <div class="card-header text-right">
+                <button type="button" class="btn btn-secondary" (click)="create()">
+                    Add Product
+                </button>
+            </div>
+            <div class="card-body">
+                <table class="table table-striped ">
+                    <thead>
+                        <tr>
+                            <th>Id</th>
+                            <th>Name</th>
+                            <th>Status</th>
+                            <th>Quantity</th>
+                            <th>Category</th>
+                            <th></th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <ng-container *ngFor="let item of data.productArr">
+                            <tr>
+                                <td><a href="javascript:void(0)" (click)="update(item.Id)"> {{ item.Name }}</a></td>
+                                <td>
+                                    <a href="javascript:void(0)" (click)="toggleActive(item)">
+                                    <i  class="fa fa-circle text-success" *ngIf="item.IsActive"></i>
+                                    <i class="fa fa-circle text-danger" *ngIf="!item.IsActive"></i>
+                                </a>
+                                </td>
+                                <td>{{ item.ParentName }}</td>
+                                <td>
+                                    <div class="operations">
+                                        <a href="javascript:void(0)" (click)="delete(item)">
+                                          <i class="fa fa-trash"></i>
+                                        </a>
+                                      </div>
+                                </td>
+                            </tr>
+                        </ng-container>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
+
+<app-add-product-popup #addProductPopup></app-add-product-popup>
+
+<swal #confirmSwal title="" text="" type="question" [showCancelButton]="true"
+[focusCancel]="true" >
+</swal>

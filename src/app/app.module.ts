@@ -16,16 +16,18 @@ import { NgSelectModule } from '@ng-select/ng-select';
 import { NgxMyDatePickerModule } from 'ngx-mydatepicker';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { LocationStrategy, HashLocationStrategy } from '@angular/common';
-import { HTTP_INTERCEPTORS } from '@angular/common/http';
+import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
 import { ClientHttpInterceptor } from './utils/client-http-interceptor';
-
+import { AngularEditorModule } from '@kolkov/angular-editor';
+import { AngularEditorOptions } from './utils/angular-editor-options';
+import { ngfModule } from "angular-file"
 
 @NgModule({
   declarations: [
     AppComponent
   ],
   imports: [
-    BrowserModule,
+    BrowserModule,HttpClientModule ,
     AppRoutingModule ,
     AngularFireModule.initializeApp(environment.firebase),
     AngularFirestoreModule ,
@@ -33,6 +35,7 @@ import { ClientHttpInterceptor } from './utils/client-http-interceptor';
     ToastrModule.forRoot(), NgxSpinnerModule ,BrowserAnimationsModule ,
     AppRoutingModule , NgxPaginationModule,SharedModule,   NgxSmartModalModule.forRoot(),
     SweetAlert2Module.forRoot() ,NgSelectModule ,NgxMyDatePickerModule.forRoot() ,
+    AngularEditorModule , ngfModule
   ],
   providers: [
     {provide: LocationStrategy, useClass: HashLocationStrategy},
@@ -40,7 +43,7 @@ import { ClientHttpInterceptor } from './utils/client-http-interceptor';
       provide: HTTP_INTERCEPTORS,
       useClass: ClientHttpInterceptor,
       multi: true
-    }
+    } , AngularEditorOptions
   ],
   bootstrap: [AppComponent]
 })

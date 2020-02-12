@@ -13,14 +13,19 @@ import { AddCategoryPopupComponent } from './components/category/add-category-po
 import { NgSelectModule } from '@ng-select/ng-select';
 import { NgxSmartModalModule } from 'ngx-smart-modal';
 import { SweetAlert2Module } from '@sweetalert2/ngx-sweetalert2';
-
-
+import { PageHeadComponent } from './layout/page-head/page-head.component';
+import { ProductComponent } from './views/product/product.component';
+import { AddProductPopupComponent } from './components/product/add-product-popup/add-product-popup.component';
+import { AngularEditorModule } from '@kolkov/angular-editor';
+import { HttpClientModule } from '@angular/common/http';
+import { ngfModule } from "angular-file";
 
 @NgModule({
-  declarations: [AdminComponent, CategoryComponent, DashboardComponent, NavBarComponent, SideBarComponent, FooterComponent, LoginComponent, AddCategoryPopupComponent],
+  declarations: [AdminComponent, CategoryComponent, DashboardComponent, NavBarComponent, SideBarComponent, FooterComponent, LoginComponent, AddCategoryPopupComponent, PageHeadComponent, ProductComponent, AddProductPopupComponent],
   imports: [
-    CommonModule , AdminRoutingModule , FormsModule , ReactiveFormsModule
-     ,NgSelectModule , NgxSmartModalModule.forChild() , SweetAlert2Module.forChild()
+    CommonModule , AdminRoutingModule , FormsModule , ReactiveFormsModule , HttpClientModule
+     ,NgSelectModule , NgxSmartModalModule.forChild() , SweetAlert2Module.forChild() 
+     , AngularEditorModule  ,ngfModule
   ]
 })
 export class AdminModule { }
